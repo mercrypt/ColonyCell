@@ -541,6 +541,21 @@ body.dark-mode .total-row {
         padding: 20px 15px;
     }
 
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .bmac-btn {
+        width: 100%;
+        justify-content: center;
+        background: #FFDD00 !important;
+        color: #000000 !important;
+        margin-top: 5px;
+        -webkit-appearance: none;
+    }
+
     .input-grid, .manual-add-grid {
         grid-template-columns: 1fr;
     }
@@ -562,9 +577,11 @@ body.dark-mode .total-row {
     .summary-bar {
         grid-template-columns: 1fr;
     }
+
     .action-buttons-row {
         flex-direction: column;
     }
+
     .action-btn {
         width: 100%;
     }
@@ -572,7 +589,14 @@ body.dark-mode .total-row {
     .styled-table th, .styled-table td {
         padding: 6px 4px;
         font-size: 0.75rem;
-        word-break: break-word;
+    }
+
+    .styled-table th:first-child,
+    .styled-table td:first-child {
+        white-space: nowrap;
+        min-width: 38px;
+        padding-left: 8px;
+        padding-right: 8px;
     }
 
     .detailed-block {
@@ -587,34 +611,5 @@ body.dark-mode .total-row {
     .block-stats {
         font-size: 0.8rem;
         padding: 8px;
-    }
-}
-
-/* Buy Me a Coffee Button */
-.bmac-btn {
-    background-color: #FFDD00;
-    color: #000000 !important;
-    padding: 8px 14px;
-    border-radius: 6px;
-    font-weight: 700 !important;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid #e0c200;
-}
-
-.bmac-btn:hover {
-    background-color: #ffea4d;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    border-bottom: none;
-}
-
-@media (max-width: 1050px) {
-    .bmac-btn {
-        width: 100%;
-        justify-content: center;
     }
 }
