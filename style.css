@@ -574,26 +574,19 @@ body.dark-mode .total-row {
 }
 
 @media (max-width: 720px) {
-    .summary-bar {
-        grid-template-columns: 1fr;
-    }
-
-    .action-buttons-row {
-        flex-direction: column;
-    }
-
-    .action-btn {
-        width: 100%;
-    }
-
     .styled-table th, .styled-table td {
-        padding: 6px 4px;
+        padding: 4px 2px;
         font-size: 0.75rem;
         word-break: normal !important;
     }
 
+
     .styled-table th:nth-child(1),
-    .styled-table td:nth-child(1),
+    .styled-table td:nth-child(1) {
+        min-width: 35px;
+        white-space: nowrap !important;
+    }
+
     .styled-table th:nth-child(2),
     .styled-table td:nth-child(2),
     .styled-table th:nth-child(3),
