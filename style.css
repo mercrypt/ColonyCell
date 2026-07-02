@@ -589,18 +589,21 @@ body.dark-mode .total-row {
     .styled-table th, .styled-table td {
         padding: 6px 4px;
         font-size: 0.75rem;
+        word-break: normal !important;
     }
 
-    .styled-table th:first-child,
-    .styled-table td:first-child {
-        white-space: nowrap;
-        min-width: 38px;
-        padding-left: 8px;
-        padding-right: 8px;
+    .styled-table th:nth-child(1),
+    .styled-table td:nth-child(1),
+    .styled-table th:nth-child(2),
+    .styled-table td:nth-child(2),
+    .styled-table th:nth-child(3),
+    .styled-table td:nth-child(3) {
+        white-space: nowrap !important;
     }
 
     .detailed-block {
         padding: 12px;
+        overflow-x: auto !important;
     }
 
     .detailed-block h4 {
