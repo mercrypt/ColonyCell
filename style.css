@@ -554,6 +554,13 @@ body.dark-mode .total-row {
         color: #000000 !important;
         margin-top: 5px;
         -webkit-appearance: none;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .bmac-btn:hover {
+        background: #e6c700 !important;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .input-grid, .manual-add-grid {
@@ -570,6 +577,13 @@ body.dark-mode .total-row {
 
     .summary-bar {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .bmac-btn {
+        width: 100%;
+        justify-content: center;
+        margin-top: 5px;
+        -webkit-appearance: none;
     }
 }
 
