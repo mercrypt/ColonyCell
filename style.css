@@ -573,7 +573,7 @@ body.dark-mode .total-row {
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 720px) {
     .summary-bar {
         grid-template-columns: 1fr;
     }
