@@ -67,6 +67,11 @@ public:
         out << "<div class='meter-box'><span>Expected Energy</span><strong>" << FormatDouble(packManager.CalculateTotalPackEnergy()) << " Wh</strong></div>\n";
         out << "<div class='meter-box'><span>Resistance Variance</span><strong>" << FormatDouble(packManager.GetResistanceVariancePercentage()) << "%</strong></div>\n";
 
+
+        out << "<div class='meter-box' style='grid-column: 1 / -1; border-top: 1px dashed var(--border); padding-top: 10px; margin-top: 0px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px;'>";        out << "<span style='font-size: 0.95rem; text-transform: none; opacity: 1; margin: 0;'>Did this tool save your battery pack?</span>";
+        out << "<a href='https://www.buymeacoffee.com/naroedev' target='_blank' style='color: var(--primary); font-weight: bold; text-decoration: none; font-size: 0.95rem;'>Consider buying me a coffee! ☕</a>";
+        out << "</div>\n";
+
         return out.str();
     }
 

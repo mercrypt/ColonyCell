@@ -403,16 +403,15 @@ body.dark-mode .cell-list-container {
     box-shadow: 0 6px 12px rgba(59, 130, 246, 0.4); 
 }
 
-/* --- RESULTS SECTION --- */
-.summary-bar { 
-    background: var(--panel-bg); 
-    border-radius: 8px; 
-    padding: 25px; 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
-    gap: 20px; 
-    border: 1px solid var(--border); 
-    transition: 0.3s; 
+.summary-bar {
+    background: var(--panel-bg);
+    border-radius: 8px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    border: 1px solid var(--border);
+    transition: 0.3s;
 }
 
 .meter-box span { 
@@ -588,5 +587,34 @@ body.dark-mode .total-row {
     .block-stats {
         font-size: 0.8rem;
         padding: 8px;
+    }
+}
+
+/* Buy Me a Coffee Button */
+.bmac-btn {
+    background-color: #FFDD00;
+    color: #000000 !important;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-weight: 700 !important;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #e0c200;
+}
+
+.bmac-btn:hover {
+    background-color: #ffea4d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-bottom: none;
+}
+
+@media (max-width: 1050px) {
+    .bmac-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
