@@ -560,7 +560,6 @@ body.dark-mode .total-row {
         width: 100%;
     }
 
-    /* --- BMAC BUTTON MOBILE MODIFICATIONS --- */
     .bmac-btn {
         width: 100%;
         justify-content: center;
@@ -598,12 +597,11 @@ body.dark-mode .total-row {
     }
 
     .styled-table th, .styled-table td {
-        padding: 4px 2px; /* Less padded for small screens */
+        padding: 4px 2px;
         font-size: 0.75rem;
         word-break: normal !important;
     }
 
-    /* Expanding ID Column slightly */
     .styled-table th:nth-child(1),
     .styled-table td:nth-child(1) {
         min-width: 35px;
@@ -681,75 +679,107 @@ body.dark-mode .gear-item {
     line-height: 1.5;
 }
 
+/* --- FIXED HIGH-CONVERSION GEAR BANNER --- */
 .gear-banner {
     position: fixed;
     bottom: 0;
     left: 0;
+    right: 0;
+    margin: 0;
     width: 100%;
-    background: var(--panel-bg);
-    border-top: 2px solid var(--primary);
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+    max-width: none;
+    background: var(--primary);
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
     z-index: 1000;
-    padding: 5px 20px;
+    padding: 3px 30px;
     transition: background 0.3s, box-shadow 0.3s;
+    border-radius: 0;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 body.dark-mode .gear-banner {
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+    background: #098446;
 }
 
 .gear-banner-content {
     display: flex;
     align-items: center;
-    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 14px;
     font-size: 0.95rem;
-    color: var(--text);
+    font-weight: 600;
+    color: white;
     max-width: 1800px;
     margin: 0 auto;
     width: 100%;
 }
 
 .gear-banner-link {
-    color: var(--primary);
-    font-weight: bold;
+    color: #FFE066 !important;
+    font-weight: 600;
     text-decoration: none;
-    transition: 0.2s;
+    border-bottom: 1.5px dashed rgba(255, 224, 102, 0.4);
+    padding-bottom: 1px;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
 }
 
 .gear-banner-link:hover {
-    text-decoration: underline;
-    text-shadow: 0 0 8px rgba(11, 155, 83, 0.4);
+    color: #FFD700 !important;
+    border-bottom-color: #FFD700;
 }
 
 .gear-banner-btn {
-    background: var(--primary);
-    color: white;
+    background: white;
+    color: var(--primary);
     border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
     font-size: 0.85rem;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
+    transition: all 0.2s ease;
     margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+body.dark-mode .gear-banner-btn {
+    color: #098446;
 }
 
 .gear-banner-btn:hover {
-    background: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(11, 155, 83, 0.3);
+    background: #ffffff;
+    transform: scale(1.04);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 800px) {
-    .gear-banner-link, .hide-mobile {
-        display: none;
+/* --- AUTOMATED RESPONSIVE MOBILE --- */
+@media (max-width: 1020px) {
+    .gear-banner-link,
+    .hide-mobile,
+    .gear-banner-content > span:not(:first-child) {
+        display: none !important;
+    }
+
+    .gear-banner {
+        border-radius: 12px;
+        bottom: 5px;
+        padding: 10px 20px;
     }
 
     .gear-banner-content {
         justify-content: space-between;
+        flex-wrap: nowrap;
     }
 
     .gear-banner-btn {
-        margin-left: 0;
+        margin-left: 15px;
     }
 }
