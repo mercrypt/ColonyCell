@@ -787,7 +787,7 @@ body.dark-mode .gear-banner-btn {
     }
 
     .gear-banner-content > span:first-child {
-        font-size: 0.75rem;
+        font-size: 0.45rem;
         overflow: hidden;
         text-overflow: ellipsis;
         min-width: 0;
