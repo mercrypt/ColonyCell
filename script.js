@@ -22,6 +22,10 @@ const summaryBox = document.getElementById('summaryBox');
 const csvFile = document.getElementById('csvFile');
 const cellList = document.getElementById('cellList');
 
+const navGear = document.getElementById('navGear');
+const pageGear = document.getElementById('pageGear');
+const bannerToGearBtn = document.getElementById('bannerToGearBtn');
+
 // Initialize Theme
 if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark-mode');
@@ -80,15 +84,21 @@ function enforceFloatInput(e) {
 
 // Navigation Flow
 function switchTab(activeNav, activePage) {
-    [navTool, navFaq, navInfo].forEach(n => n.classList.remove('active'));
-    [pageTool, pageFaq, pageInfo].forEach(p => p.classList.add('hidden'));
-    activeNav.classList.add('active');
-    activePage.classList.remove('hidden');
+    [navTool, navGear, navFaq, navInfo].forEach(n => {
+        if(n) n.classList.remove('active');
+    });
+    [pageTool, pageGear, pageFaq, pageInfo].forEach(p => {
+        if(p) p.classList.add('hidden');
+    });
+    if(activeNav) activeNav.classList.add('active');
+    if(activePage) activePage.classList.remove('hidden');
 }
 
 navTool.addEventListener('click', () => switchTab(navTool, pageTool));
+if (navGear) navGear.addEventListener('click', () => switchTab(navGear, pageGear));
 navFaq.addEventListener('click', () => switchTab(navFaq, pageFaq));
 navInfo.addEventListener('click', () => switchTab(navInfo, pageInfo));
+if (bannerToGearBtn) bannerToGearBtn.addEventListener('click', () => switchTab(navGear, pageGear));
 
 // Output View Toggles
 if (btnCompact) {
