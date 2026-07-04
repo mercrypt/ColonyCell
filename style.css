@@ -691,7 +691,7 @@ body.dark-mode .gear-item {
     background: var(--primary);
     box-shadow: 0 -4px 15px rgba(0,0,0,0.15);
     z-index: 1000;
-    padding: 3px 30px;
+    padding: 6px 30px;
     transition: background 0.3s, box-shadow 0.3s;
     border-radius: 0;
     border: none;
@@ -707,7 +707,8 @@ body.dark-mode .gear-banner {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* FIX: Prevents the banner from getting taller */
+    white-space: nowrap; /* FIX: Forces everything on a single line */
     gap: 8px 14px;
     font-size: 0.95rem;
     font-weight: 600;
@@ -715,6 +716,7 @@ body.dark-mode .gear-banner {
     max-width: 1800px;
     margin: 0 auto;
     width: 100%;
+    overflow: hidden; /* FIX: Cleanly hides overflowing content */
 }
 
 .gear-banner-link {
@@ -748,6 +750,7 @@ body.dark-mode .gear-banner {
     justify-content: center;
     line-height: 1;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 body.dark-mode .gear-banner-btn {
@@ -760,26 +763,55 @@ body.dark-mode .gear-banner-btn {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* --- AUTOMATED RESPONSIVE MOBILE --- */
-@media (max-width: 1020px) {
-    .gear-banner-link,
-    .hide-mobile,
-    .gear-banner-content > span:not(:first-child) {
+@media (max-width: 1250px) {
+    .gear-banner-link:nth-of-type(3),
+    .hide-mobile:nth-of-type(4) {
+        display: none !important;
+    }
+}
+
+@media (max-width: 950px) {
+    .gear-banner-link:nth-of-type(2),
+    .hide-mobile:nth-of-type(3) {
         display: none !important;
     }
 
     .gear-banner {
         border-radius: 12px;
         bottom: 5px;
-        padding: 10px 20px;
+        padding: 8px 15px;
+        width: calc(100% - 10px);
+        left: 5px;
     }
+}
 
+@media (max-width: 700px) {
     .gear-banner-content {
         justify-content: space-between;
-        flex-wrap: nowrap;
     }
 
-    .gear-banner-btn {
-        margin-left: 15px;
+    .hide-mobile:nth-of-type(2) {
+        display: none !important;
+    }
+
+    .gear-banner-content > span:first-child {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        min-width: 0; /* Allows text to shrink safely */
+        flex-shrink: 1;
+    }
+
+    .gear-banner-link:nth-of-type(1) {
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    .gear-banner-content > span:first-child {
+        display: none !important;
+    }
+    .gear-banner-content {
+        justify-content: center;
+        gap: 15px;
     }
 }
