@@ -690,8 +690,7 @@ body.dark-mode .gear-item {
     background: var(--primary);
     box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
     z-index: 1000;
-    border-radius: 0;
-    box-sizing: border-box;
+    border-radius: 0 !important;
     display: flex;
     align-items: center;
 }
@@ -705,29 +704,31 @@ body.dark-mode .gear-banner {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 12px;
-    white-space: nowrap;
     width: 100%;
     max-width: 1800px;
     margin: 0 auto;
     padding: 0 15px;
+    white-space: nowrap;
 }
 
+/* THE SUPPORT TEXT */
 .gear-banner-content > span:first-child {
     font-size: 0.85rem;
     font-weight: 600;
     color: white;
-    margin-top: 1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: auto;
 }
 
+/* THE LINKS (Desktop only) */
 .gear-banner-link {
     color: #FFE066 !important;
     font-weight: 600;
     text-decoration: none;
     border-bottom: 1px dashed rgba(255, 224, 102, 0.4);
-    padding-bottom: 0px;
-    transition: all 0.2s ease-in-out;
     font-size: 0.85rem;
+    margin-left: 12px;
 }
 
 .gear-banner-link:hover {
@@ -735,28 +736,28 @@ body.dark-mode .gear-banner {
     border-bottom-color: #FFD700;
 }
 
+/* THE SEPARATORS (Desktop only) */
 .hide-mobile {
-    font-size: 0.85rem;
     color: white;
+    margin-left: 12px;
 }
 
 .hide-mobile:last-of-type {
     display: none !important;
 }
 
+/* THE BUTTON */
 .gear-banner-btn {
     background: white;
     color: var(--primary);
     border: none;
-    height: 22px;
+    height: 24px; /* Thin button */
     padding: 0 12px;
     border-radius: 12px;
     font-size: 0.75rem;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.2s ease;
-    margin-left: auto;
-    white-space: nowrap;
+    margin-left: 15px;
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -778,18 +779,19 @@ body.dark-mode .gear-banner-btn {
     .hide-mobile {
         display: none !important;
     }
-}
 
-@media (max-width: 500px) {
     .gear-banner-content {
-        gap: 8px;
         padding: 0 10px;
     }
+}
 
+@media (max-width: 450px) {
     .gear-banner-content > span:first-child {
-        font-size: 0.45rem;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        min-width: 0;
+        font-size: 0.75rem;
+    }
+    .gear-banner-btn {
+        font-size: 0.7rem;
+        height: 22px;
+        padding: 0 10px;
     }
 }
