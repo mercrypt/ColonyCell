@@ -703,7 +703,6 @@ body.dark-mode .gear-banner {
 .gear-banner-content {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     width: 100%;
     max-width: 1800px;
     margin: 0 auto;
@@ -712,13 +711,18 @@ body.dark-mode .gear-banner {
 }
 
 /* THE SUPPORT TEXT */
-.gear-banner-content > span:first-child {
+.banner-text {
     font-size: 0.85rem;
     font-weight: 600;
     color: white;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-right: auto;
+}
+
+/* THE LINKS WRAPPER */
+.banner-links {
+    display: flex;
+    align-items: center;
 }
 
 /* THE LINKS (Desktop only) */
@@ -736,14 +740,10 @@ body.dark-mode .gear-banner {
     border-bottom-color: #FFD700;
 }
 
-/* THE SEPARATORS (Desktop only) */
+/* THE SEPARATORS */
 .hide-mobile {
     color: white;
     margin-left: 12px;
-}
-
-.hide-mobile:last-of-type {
-    display: none !important;
 }
 
 /* THE BUTTON */
@@ -751,13 +751,13 @@ body.dark-mode .gear-banner {
     background: white;
     color: var(--primary);
     border: none;
-    height: 24px; /* Thin button */
+    height: 24px;
     padding: 0 12px;
     border-radius: 12px;
     font-size: 0.75rem;
     font-weight: bold;
     cursor: pointer;
-    margin-left: 15px;
+    margin-left: auto; /* <--- THIS PUSHES ONLY THE BUTTON TO THE RIGHT */
     flex-shrink: 0;
     display: flex;
     align-items: center;
@@ -775,8 +775,8 @@ body.dark-mode .gear-banner-btn {
 
 /* --- AUTOMATED RESPONSIVE MOBILE --- */
 @media (max-width: 1200px) {
-    .gear-banner-link,
-    .hide-mobile {
+    /* Hide links entirely when screen starts running out of horizontal space */
+    .banner-links {
         display: none !important;
     }
 
@@ -786,9 +786,10 @@ body.dark-mode .gear-banner-btn {
 }
 
 @media (max-width: 450px) {
-    .gear-banner-content > span:first-child {
+    .banner-text {
         font-size: 0.75rem;
     }
+
     .gear-banner-btn {
         font-size: 0.7rem;
         height: 22px;
